@@ -1,4 +1,3 @@
-
 import 'package:calorie_v2/util/mybutton.dart';
 import 'package:flutter/material.dart';
 
@@ -7,20 +6,18 @@ class DialogBox extends StatelessWidget {
   VoidCallback onSave;
   VoidCallback onCancel;
 
-
-   DialogBox({
-    super.key,
-    required this.controller,
-    required this.onSave,
-    required this.onCancel
-  });
+  DialogBox(
+      {super.key,
+      required this.controller,
+      required this.onSave,
+      required this.onCancel});
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       // ignore: sized_box_for_whitespace
       content: Container(
-        height: 120,
+        height: 200,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -31,6 +28,13 @@ class DialogBox extends StatelessWidget {
                 hintText: "Add your Foods",
               ),
             ),
+            // TextField(
+            //   controller: controller,
+            //   decoration: const InputDecoration(
+            //     border: OutlineInputBorder(),
+            //     hintText: "Add The Calorie",
+            //   ),
+            // ),
 
             // button save and cancel
             Row(

@@ -1,6 +1,6 @@
-
 import 'package:calorie_v2/main.dart';
 import 'package:calorie_v2/util/dialogbox.dart';
+import 'package:calorie_v2/util/food_tile.dart';
 import 'package:flutter/material.dart';
 
 class CalculatorCalorie extends StatefulWidget {
@@ -71,7 +71,10 @@ class _CalculatorCalorieState extends State<CalculatorCalorie> {
 
   final _controller = TextEditingController();
 
-  List food = [];
+  List food = [
+    ["burger", 200],
+    ["dougnut", 100]
+  ];
 
   void saveNewFood() {
     setState(() {
@@ -91,6 +94,7 @@ class _CalculatorCalorieState extends State<CalculatorCalorie> {
       },
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,6 +117,12 @@ class _CalculatorCalorieState extends State<CalculatorCalorie> {
             Icons.add,
             color: Colors.white,
           )),
+      body: ListView.builder(
+        itemCount: food.length,
+        itemBuilder: (context, index) {
+          return FoodTile(foodName: food[index][0], calorie: [index]);
+        },
+      ),
     );
   }
 }
