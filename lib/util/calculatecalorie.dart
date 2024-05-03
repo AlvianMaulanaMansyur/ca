@@ -1,3 +1,6 @@
+// ignore_for_file: sort_child_properties_last
+
+import 'package:calorie_v2/main.dart';
 import 'package:flutter/material.dart';
 
 class calculateCalorie extends StatelessWidget {
@@ -36,8 +39,16 @@ class calculateCalorie extends StatelessWidget {
             },
           );
         },
-        child: const Text('Count Calorie'),
-        
+        child: const Padding(
+          padding:  EdgeInsets.all(12.0),
+          child:  Text(
+            'Count Calorie',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: MyApp.primaryColor,
+        ),
       ),
     );
   }
