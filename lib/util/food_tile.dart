@@ -3,23 +3,50 @@ import 'package:flutter/material.dart';
 class FoodTile extends StatelessWidget {
   final String foodName;
   final double calorie;
-  FoodTile({super.key, required this.foodName, required this.calorie});
+  final Function onDelete;
+
+  FoodTile({
+    required this.foodName,
+    required this.calorie,
+    required this.onDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(25.0),
+      padding: const EdgeInsets.only(
+        bottom: 15.0,
+      ),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.grey[100], borderRadius: BorderRadius.circular(12)),
+            color: Colors.grey[300], borderRadius: BorderRadius.circular(12)),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(5.0),
           child: ListTile(
-            title: Text(foodName),
-            subtitle: Text('Kalori: $calorie'),
+            title: Text(
+              foodName,
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+            ),
+            subtitle: Text('Kalori: $calorie kkal'),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.delete),
+                  onPressed: () {
+                    onDelete();
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
+
+    // return Container(
+    //   child: Text("burger"),
+    //   decoration: BoxDecoration(color: Colors.grey[200]) ,
+    // );
   }
 }
