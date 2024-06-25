@@ -25,7 +25,7 @@ class DialogBox extends StatelessWidget {
                 }),
             TextField(
               decoration: const InputDecoration(
-                  labelText: 'Calorie Per Food (kkal)',
+                  labelText: 'Calorie Per Food (kka)',
                   labelStyle: TextStyle(color: MyApp.primaryColor)),
               keyboardType: TextInputType.number,
               onChanged: (value) {
