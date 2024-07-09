@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 class FoodTile extends StatelessWidget {
   final String foodName;
   final double calorie;
-  final Function onDelete;
+  final VoidCallback onDelete;
+  final VoidCallback onEdit;
 
   FoodTile({
     required this.foodName,
     required this.calorie,
     required this.onDelete,
+    required this.onEdit,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        bottom: 15.0,
-      ),
+      padding: const EdgeInsets.only(bottom: 15.0),
       child: Container(
         decoration: BoxDecoration(
             color: Colors.grey[300], borderRadius: BorderRadius.circular(12)),
@@ -32,10 +32,12 @@ class FoodTile extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
+                  icon: const Icon(Icons.edit),
+                  onPressed: onEdit,
+                ),
+                IconButton(
                   icon: const Icon(Icons.delete),
-                  onPressed: () {
-                    onDelete();
-                  },
+                  onPressed: onDelete,
                 ),
               ],
             ),
@@ -43,10 +45,5 @@ class FoodTile extends StatelessWidget {
         ),
       ),
     );
-
-    // return Container(
-    //   child: Text("burger"),
-    //   decoration: BoxDecoration(color: Colors.grey[200]) ,
-    // );
   }
 }
